@@ -14,13 +14,12 @@ spec:
               directories:
                 - path: application-sets/example-apps/*
           # cluster generator, 'child' #2
-          - clusters: {} # Automatically use all clusters defined within Argo CD
-              
+          - clusters: {}
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
     spec:
-      project: default
+      project: 'default'
       source:
         repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
         targetRevision: HEAD
@@ -28,3 +27,9 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
