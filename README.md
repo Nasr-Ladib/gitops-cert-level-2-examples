@@ -53,7 +53,7 @@ argocd cluster add default --name cluster-2
 # Adding new app to cluster 2
 # Executed from main cluster
 argocd app create external-app \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./simple-application \
@@ -62,7 +62,7 @@ argocd app create external-app \
 
 # Adding new app to our main cluster
 argocd app create internal-app \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./simple-application \
@@ -264,7 +264,7 @@ spec:
 ```bash
 # Generates apps based on list generator
 argocd app create my-application-sets \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./application-sets/my-application-sets/ \
@@ -334,7 +334,7 @@ spec:
 for namespace in {qa,staging,prod}; do
 kubectl create namespace $namespace
 argocd app create $namespace \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./environment-promotion/envs/$namespace \
@@ -345,7 +345,7 @@ argocd app create $namespace \
 #### Exercise: Argo Image Updater
 ```bash
 argocd app create my-example-apps \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./image-updater/applications \
@@ -354,7 +354,7 @@ argocd app create my-example-apps \
 
 # Install argocd Image Updater
 argocd app create image-updater \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy automatic \
 --path ./image-updater/controller \
@@ -403,7 +403,7 @@ argocd app create image-updater \
 k create ns example01
 
 argocd app create example01 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/01-default-order \
@@ -413,7 +413,7 @@ argocd app create example01 \
 k create ns example02
 
 argocd app create example02 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/02-presync-job \
@@ -423,7 +423,7 @@ argocd app create example02 \
 k create ns example03
 
 argocd app create example03 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/03-postsync-cleanup \
@@ -433,7 +433,7 @@ argocd app create example03 \
 k create ns example04
 
 argocd app create example04 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/04-handle-sync-fail \
@@ -443,7 +443,7 @@ argocd app create example04 \
 k create ns example05
 
 argocd app create example05 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/05-sync-waves \
@@ -453,7 +453,7 @@ argocd app create example05 \
 k create ns example06
 
 argocd app create example06 \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./sync-hooks-waves/06-waves-and-hooks \
@@ -468,7 +468,7 @@ argocd app create example06 \
 
 ```bash
 argocd app create problematic-apps \
---repo https://github.com/theJaxon/gitops-cert-level-2-examples \
+--repo https://github.com/Nasr-Ladib/gitops-cert-level-2-examples \
 --project default \
 --sync-policy none \
 --path ./custom-diff/applications \
