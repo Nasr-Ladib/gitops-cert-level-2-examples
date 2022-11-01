@@ -43,7 +43,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-
+      - id: lower-repo
+        shell: pwsh
+        run: |
+            "::set-output name=repository::$($env:GITHUB_REPOSITORY.ToLowerInvariant())"
+            
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
@@ -53,7 +57,7 @@ jobs:
           context: ./image-updater/source-code
           file: ./image-updater/source-code/Dockerfile
           push: true
-          tags: ghcr.io/nasr-ladib/gitops-cert-level-2-examples:${{ inputs.docker_tag }}
+          tags: ghcr.io/${{ steps.lower-repo.outputs.repository }}:${{ inputs.docker_tag }}
 
 
 
